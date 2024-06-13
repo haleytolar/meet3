@@ -1,6 +1,6 @@
 import React from 'react';
 
-const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
+const NumberOfEvents = ({ setCurrentNOE }) => {
   const handleInputChanged = (event) => {
     const value = event.target.value;
 
@@ -13,7 +13,6 @@ const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
     }
 
     setCurrentNOE(value);
-    setErrorAlert(errorText);
   };
 
   return (
