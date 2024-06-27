@@ -68,34 +68,33 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
-.event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: relative;
+#root {
+  background-color: pink;
 }
 
 .details-btn {
   position: absolute;
-  right: 5px;
-  bottom: 5px;
+  right: 10px;
+  bottom: 10px;
   padding: 5px 8px;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
+  background-color: #ffcc80;
+  border: 1px solid black;
 }
 
 .showDetailsButton {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 11px 15px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
   background-color: pink;
-  font-size: 18px;      
-  font-weight: bold;    
-  border-radius: 8px;    
-  padding: 10px 20px;    
-  border: none;          
-  cursor: pointer;    
-  color: white;   
+  font-size: large;
+
 }
 
 .alerts-container {
@@ -105,3 +104,46 @@ input[type="number"] {
   width: 250px;
   z-index: 1000;
 }
+
+.charts-container {
+  display: flex;
+  justify-content: space-around; 
+  flex-wrap: wrap; 
+  gap: 10px; 
+}
+
+.charts-container > div {
+  flex: 1; 
+  min-width: 300px; 
+  max-width: 600px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 2px solid white; 
+  padding: 10px; 
+  background-color: white; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-family: 'Rammetto One', sans-serif;
+  color: white;
+  
+}
+
+
+
+.event {
+  background-color: white;
+  display: inline-block;
+  padding: 20px 20px 50px;
+  margin: 10px 0;
+  text-align: left;
+  border-radius: 4px;
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+

@@ -1,9 +1,11 @@
+import React, { useEffect, useState } from 'react';
 import CitySearch from './components/CitySearch';
 import EventList from './components/EventList';
 import NumberOfEvents from './components/NumberOfEvents';
-import { useEffect, useState } from 'react';
 import { extractLocations, getEvents } from './api';
 import { InfoAlert, ErrorAlert, WarningAlert } from './components/Alert';
+import CityEventsChart from './components/CityEventsChart';
+import EventGenresChart from './components/EventGenresChart';
 
 import './App.css';
 
@@ -14,7 +16,7 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState("See all cities");
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState(""); 
-  const [warningAlert, setWarningAlert] = useState("");  // Renamed to warningAlert
+  const [warningAlert, setWarningAlert] = useState("");  
 
   useEffect(() => {
     if (navigator.onLine) {
@@ -36,21 +38,28 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1>Meet App</h1>
       <div className="alerts-container">
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
+        {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
-        {warningAlert.length ? <WarningAlert text={warningAlert} /> : null}  
       </div>
       <CitySearch
         allLocations={allLocations}
         setCurrentCity={setCurrentCity}
         setInfoAlert={setInfoAlert} />
-      <NumberOfEvents 
-        setCurrentNOE={setCurrentNOE}
-        setErrorAlert={setErrorAlert} />
+      <NumberOfEvents setCurrentNOE={setCurrentNOE} setErrorAlert={setErrorAlert} />
+      <div className="charts-container">
+        <div className="chart-container">
+          <EventGenresChart events={events} />
+        </div>
+        <div className="chart-container">
+          <CityEventsChart allLocations={allLocations} events={events} />
+        </div>
+      </div>  
       <EventList events={events} />
     </div>
-  );
+ );
 }
 
 export default App;
